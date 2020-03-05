@@ -1,0 +1,22 @@
+plugins {
+    id "idea"
+    id "java"
+    id "application"
+}
+
+group = 'com.github.gregwhitaker'
+version = '0.1.0'
+mainClassName = 'example.lucene.Application'
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.apache.lucene:lucene-core:8.4.1'
+    implementation 'org.apache.lucene:lucene-queryparser:8.4.1'
+    implementation 'org.slf4j:slf4j-api:1.7.30'
+
+    runtime 'org.slf4j:slf4j-simple:1.7.30'
+}
