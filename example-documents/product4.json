@@ -1,0 +1,33 @@
+{
+  "id": "004",
+  "active": true,
+  "category": "apparel",
+  "category_code": 2,
+  "short_name": "Blue Womens Tee",
+  "long_name": "A blue womens t-shirt",
+  "description": "This is a description of a super awesome blue womens t-shirt",
+  "gender": "male",
+  "prices": {
+    "msrp": 55.00,
+    "list": 45.00,
+    "sale": 35.99
+  },
+  "skus": [
+    {
+      "sku": "004-1230",
+      "size": "X-Small"
+    },
+    {
+      "sku": "004-1231",
+      "size": "Small"
+    },
+    {
+      "sku": "004-1232",
+      "size": "Medium"
+    },
+    {
+      "sku": "004-1233",
+      "size": "Large"
+    }
+  ]
+}
