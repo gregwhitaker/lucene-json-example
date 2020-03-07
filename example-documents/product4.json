@@ -6,7 +6,7 @@
   "short_name": "Blue Womens Tee",
   "long_name": "A blue womens t-shirt",
   "description": "This is a description of a super awesome blue womens t-shirt",
-  "gender": "male",
+  "gender": "female",
   "prices": {
     "msrp": 55.00,
     "list": 45.00,

@@ -1,0 +1,41 @@
+{
+  "id": "005",
+  "active": true,
+  "category": "apparel",
+  "category_code": 2,
+  "short_name": "Grey Hoodie",
+  "long_name": "Plain Grey Hipster Hoodie",
+  "description": "This is a description of a plain grey hoodie for hipsters",
+  "gender": "unisex",
+  "prices": {
+    "msrp": 45.00,
+    "list": 44.00,
+    "sale": 38.99
+  },
+  "skus": [
+    {
+      "sku": "005-1230",
+      "size": "X-Small"
+    },
+    {
+      "sku": "005-1231",
+      "size": "Small"
+    },
+    {
+      "sku": "005-1232",
+      "size": "Medium"
+    },
+    {
+      "sku": "005-1233",
+      "size": "Large"
+    },
+    {
+      "sku": "005-1234",
+      "size": "X-Large"
+    },
+    {
+      "sku": "005-1235",
+      "size": "XX-Large"
+    }
+  ]
+}
