@@ -1,0 +1,29 @@
+{
+  "id": "001",
+  "active": true,
+  "category": "footwear",
+  "category_code": 1,
+  "short_name": "Shoe 001",
+  "long_name": "Super Awesome Shoe 001",
+  "description": "This is a description of a super awesome shoe",
+  "gender": "male",
+  "prices": {
+    "msrp": 120.00,
+    "list": 110.00,
+    "sale": 99.99
+  },
+  "skus": [
+    {
+      "sku": "001-1231",
+      "size": "8"
+    },
+    {
+      "sku": "001-1232",
+      "size": "9"
+    },
+    {
+      "sku": "001-1233",
+      "size": "10"
+    }
+  ]
+}

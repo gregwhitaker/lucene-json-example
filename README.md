@@ -1,4 +1,18 @@
-# lucene-example
+# lucene-json-example
+An example of indexing and searching JSON documents using Lucene.
+
+## Building the Example
+Run the following command to build the example:
+
+    ./gradlew clean build
+    
+## Running the Example
+Follow the steps below to run the example:
+
+* TBD
+
+## Bugs and Feedback
+For bugs, questions, comments, and discussions please use the [Github Issues](https://github.com/gregwhitaker/lucene-json-example/issues).
 
 ## License
 MIT License
