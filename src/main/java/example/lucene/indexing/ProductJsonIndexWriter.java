@@ -18,6 +18,9 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.nio.file.Paths;
 
+/**
+ * Builds the search index for the product JSON files.
+ */
 public class ProductJsonIndexWriter {
     private static final Logger LOG = LoggerFactory.getLogger(ProductJsonIndexWriter.class);
 
