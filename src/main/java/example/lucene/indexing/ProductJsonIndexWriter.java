@@ -66,12 +66,28 @@ public class ProductJsonIndexWriter {
 
         try {
             indexWriter.addDocument(doc);
+            indexWriter.commit();
         } catch (IOException e) {
             throw new RuntimeException("Unable to add document to search index", e);
         }
     }
 
     public void close() {
+        if (isOpen()) {
+            try {
+                indexWriter.commit();
+                indexWriter.close();
+            } catch (IOException e) {
+                throw new RuntimeException("Unable to close search index", e);
+            }
+        }
+    }
 
+    public boolean isOpen() {
+        if (indexWriter != null) {
+            return indexWriter.isOpen();
+        }
+
+        return false;
     }
 }
