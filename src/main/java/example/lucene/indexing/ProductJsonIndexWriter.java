@@ -41,6 +41,8 @@ public class ProductJsonIndexWriter {
             //Always overwrite the index for this example
             iwc.setOpenMode(IndexWriterConfig.OpenMode.CREATE);
 
+            LOG.info("Opening search index: {}", idxPath);
+
             indexWriter = new IndexWriter(dir, iwc);
         } catch (IOException e) {
             throw new RuntimeException("Unable to open search index", e);
@@ -68,6 +70,8 @@ public class ProductJsonIndexWriter {
         doc.add(new DoublePoint("salePrice", product.getPrices().getSale()));
 
         try {
+            LOG.info("Adding Product '{}' to search index", product.getId());
+
             indexWriter.addDocument(doc);
             indexWriter.commit();
         } catch (IOException e) {
@@ -78,6 +82,8 @@ public class ProductJsonIndexWriter {
     public void close() {
         if (isOpen()) {
             try {
+                LOG.info("Closing search index: {}", idxPath);
+
                 indexWriter.commit();
                 indexWriter.close();
             } catch (IOException e) {
