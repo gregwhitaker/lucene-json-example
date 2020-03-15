@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import example.lucene.indexing.ProductJsonIndexWriter;
 import example.lucene.json.Product;
 import org.apache.lucene.document.Document;
+import org.apache.lucene.document.DoublePoint;
 import org.apache.lucene.document.IntPoint;
 import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.index.IndexReader;
@@ -46,6 +47,7 @@ public class Application {
         findAllMensProducts(indexSearcher);
         findAllWomensProducts(indexSearcher);
         findAllWomensApparel(indexSearcher);
+        findAllProductsBetweenFortyFiveAndOneHundredDollars(indexSearcher);
     }
 
     private static void createIndex(final String idxPath, final String jsonPath) {
@@ -109,6 +111,20 @@ public class Application {
                 .add(new BooleanClause(new TermQuery(new Term("gender", "female")), BooleanClause.Occur.MUST))
                 .add(new BooleanClause(IntPoint.newExactQuery("categoryCode", 2), BooleanClause.Occur.MUST))
                 .build();
+
+        TopDocs foundDocs = indexSearcher.search(query, 10);
+
+        for(ScoreDoc sd : foundDocs.scoreDocs) {
+            Document d = indexSearcher.doc(sd.doc);
+            LOG.info("Found: {}", d.get("shortName"));
+        }
+    }
+
+    private static void findAllProductsBetweenFortyFiveAndOneHundredDollars(IndexSearcher indexSearcher) throws IOException {
+        LOG.info("==============================================");
+        LOG.info("Query: findAllProductsBetweenFortyFiveAndOneHundredDollars");
+
+        Query query = DoublePoint.newRangeQuery("listPrice", 45.0, 100.0);
 
         TopDocs foundDocs = indexSearcher.search(query, 10);
 
