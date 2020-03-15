@@ -16,6 +16,7 @@ repositories {
 dependencies {
     implementation 'org.apache.lucene:lucene-core:8.4.1'
     implementation 'org.apache.lucene:lucene-queryparser:8.4.1'
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.10.3'
     implementation 'org.slf4j:slf4j-api:1.7.30'
 
     runtime 'org.slf4j:slf4j-simple:1.7.30'
