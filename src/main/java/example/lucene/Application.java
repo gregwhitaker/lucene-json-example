@@ -4,9 +4,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import example.lucene.indexing.ProductJsonIndexWriter;
 import example.lucene.json.Product;
 import org.apache.lucene.document.Document;
+import org.apache.lucene.document.IntPoint;
 import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.index.Term;
+import org.apache.lucene.search.BooleanClause;
+import org.apache.lucene.search.BooleanQuery;
 import org.apache.lucene.search.IndexSearcher;
 import org.apache.lucene.search.Query;
 import org.apache.lucene.search.ScoreDoc;
@@ -42,6 +45,7 @@ public class Application {
 
         findAllMensProducts(indexSearcher);
         findAllWomensProducts(indexSearcher);
+        findAllWomensApparel(indexSearcher);
     }
 
     private static void createIndex(final String idxPath, final String jsonPath) {
@@ -86,6 +90,22 @@ public class Application {
 
         Term t = new Term("gender", "female");
         Query query = new TermQuery(t);
+
+        TopDocs foundDocs = indexSearcher.search(query, 10);
+
+        for(ScoreDoc sd : foundDocs.scoreDocs) {
+            Document d = indexSearcher.doc(sd.doc);
+            LOG.info("Found: {}", d.get("shortName"));
+        }
+    }
+
+    private static void findAllWomensApparel(IndexSearcher indexSearcher) throws IOException {
+        LOG.info("Query: findAllWomensApparel");
+
+        Query query = new BooleanQuery.Builder()
+                .add(new BooleanClause(new TermQuery(new Term("gender", "female")), BooleanClause.Occur.MUST))
+                .add(new BooleanClause(IntPoint.newExactQuery("categoryCode", 2), BooleanClause.Occur.MUST))
+                .build();
 
         TopDocs foundDocs = indexSearcher.search(query, 10);
 
