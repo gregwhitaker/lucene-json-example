@@ -1,5 +1,7 @@
 package example.lucene.json;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.List;
 
 public class Product {
@@ -7,9 +9,9 @@ public class Product {
     private String id;
     private boolean active;
     private String category;
-    private int categoryCode;
-    private String shortName;
-    private String longName;
+    @JsonProperty("category_code") private int categoryCode;
+    @JsonProperty("short_name") private String shortName;
+    @JsonProperty("long_name") private String longName;
     private String description;
     private String gender;
     private Prices prices;
