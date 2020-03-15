@@ -22,3 +22,7 @@ dependencies {
 
     runtime 'org.slf4j:slf4j-simple:1.7.30'
 }
+
+run {
+    args(file("${rootDir}/idx").path, file("${rootDir}/documents").path)
+}
