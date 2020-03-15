@@ -72,6 +72,7 @@ public class Application {
     }
 
     private static void findAllMensProducts(IndexSearcher indexSearcher) throws IOException {
+        LOG.info("==============================================");
         LOG.info("Query: findAllMensProducts");
 
         Term t = new Term("gender", "male");
@@ -86,6 +87,7 @@ public class Application {
     }
 
     private static void findAllWomensProducts(IndexSearcher indexSearcher) throws IOException {
+        LOG.info("==============================================");
         LOG.info("Query: findAllWomensProducts");
 
         Term t = new Term("gender", "female");
@@ -100,6 +102,7 @@ public class Application {
     }
 
     private static void findAllWomensApparel(IndexSearcher indexSearcher) throws IOException {
+        LOG.info("==============================================");
         LOG.info("Query: findAllWomensApparel");
 
         Query query = new BooleanQuery.Builder()
