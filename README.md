@@ -1,4 +1,6 @@
 # lucene-json-example
+![Build](https://github.com/gregwhitaker/lucene-json-example/workflows/Build/badge.svg)
+
 An example of indexing and searching JSON documents using Lucene.
 
 ## Building the Example
